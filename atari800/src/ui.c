@@ -241,6 +241,7 @@ int SelectCartType(UBYTE* screen, int k)
 		{ "CRTM", ITEM_ACTION, NULL, "32 KB Williams cartridge",     	NULL, 22 },
 		{ "CRTN", ITEM_ACTION, NULL, "XEGS 256 KB cartridge",           NULL, 23 },
 		{ "CRTO", ITEM_ACTION, NULL, "XEGS 512 KB cartridge",           NULL, 24 },
+		{ "CRTP", ITEM_ACTION, NULL, "XEGS 1 MB cartridge",             NULL, 25 },
 		MENU_END
 	};
 
