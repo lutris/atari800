@@ -969,6 +969,8 @@ void Atari_Initialise(int *argc, char *argv[])
 	}
 	atexit(SDL_Quit);
 
+	SDL_WM_SetCaption(ATARI_TITLE, NULL);
+
 #ifdef SOUND
 	SDL_Sound_Initialise(argc, argv);
 #endif
@@ -1593,6 +1595,9 @@ int main(int argc, char **argv)
 
 /*
  $Log$
+ Revision 1.32  2003/02/09 21:22:39  joy
+ removed obsolete and unnecessary cmdline switches
+
  Revision 1.31  2003/02/08 20:06:09  joy
  input.c had a bug that Piotr fixed, I just copied the bugfix here.
 
