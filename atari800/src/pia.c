@@ -25,7 +25,7 @@ extern int mach_xlxe;
 
 int rom_inserted;
 UBYTE atari_basic[8192];
-UBYTE atarixl_os[16384];
+UBYTE atari_os[16384];
 
 static UBYTE PORTA_mask = 0xff;
 static UBYTE PORTB_mask = 0xff;
