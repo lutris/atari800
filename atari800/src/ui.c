@@ -646,7 +646,7 @@ int SoundSettings()
 		else
 			menu_array[0].flags &= ~ITEM_CHECKED;
 
-#ifdef STEREO
+#ifdef STEREO_SOUND
 		if(stereo_enabled)
 			menu_array[1].flags |= ITEM_CHECKED;
 		else
@@ -666,7 +666,7 @@ int SoundSettings()
 			option = -1;	/* immediate exit from the while loop */
 			break;
 		case 1:
-#ifdef STEREO
+#ifdef STEREO_SOUND
 			stereo_enabled = !stereo_enabled;
 #else
 			ui_driver->fMessage("Stereo sound support not compiled in");
@@ -872,6 +872,9 @@ int CrashMenu()
 
 /*
 $Log$
+Revision 1.41  2003/02/09 21:20:43  joy
+updated for global enable_new_pokey
+
 Revision 1.40  2003/02/09 13:17:29  joy
 switch Pokey cores on-the-fly
 
