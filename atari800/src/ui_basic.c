@@ -696,6 +696,13 @@ int FileSelector(UBYTE * screen, char *directory, char *full_filename)
 			while (ListTraverse(list, (void *) &filename))
 				nfiles++;
 
+			if (!nfiles)
+			{
+				ListFree(list, (void *) free);
+				BasicUIMessage("No files inside directory");
+				break;
+			}
+
 			while (!done) {
 				int ascii;
 
@@ -1020,6 +1027,9 @@ void BasicUIInit()
 
 /*
 $Log$
+Revision 1.12  2004/08/08 08:41:47  joy
+copyright year increased
+
 Revision 1.11  2003/12/21 11:00:26  joy
 problem with opening invalid folders in UI identified
 
