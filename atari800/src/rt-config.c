@@ -434,7 +434,7 @@ void RtConfigUpdate(void)
 	}
 
 	{
-		int default_tv_mode;
+		int default_tv_mode = tv_mode == TV_NTSC ? 2 : 1;
 		do {
 			GetNumber("Default TV mode 1=PAL 2=NTSC [%d] ",
 					  &default_tv_mode);
@@ -474,6 +474,9 @@ void RtConfigUpdate(void)
 
 /*
 $Log$
+Revision 1.10  2001/09/17 18:16:03  fox
+enable_c000_ram -> ram_size = 52
+
 Revision 1.9  2001/09/17 18:13:05  fox
 machine, mach_xlxe, Ram256, os, default_system -> machine_type, ram_size
 
