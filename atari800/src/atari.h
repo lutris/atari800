@@ -59,7 +59,7 @@ extern int verbose;
 #define ATARI_WIDTH  384
 #define ATARI_HEIGHT 240
 
-#define ATARI_TITLE  "Atari 800 Emulator, Version 1.0.7"
+#define ATARI_TITLE  "Atari 800 Emulator, Version 1.2.0"
 
 extern int xpos;
 extern int xpos_limit;
@@ -221,6 +221,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.21  2001/10/03 16:49:04  fox
+added screen_visible_* variables
+
 Revision 1.20  2001/10/03 16:39:54  fox
 rewritten escape codes handling
 
