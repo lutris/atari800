@@ -901,7 +901,7 @@ int SelectCartType(UBYTE * screen, int k)
 		"XEGS 32 KB cartridge",
 		"XEGS 64 KB cartridge",
 		"XEGS 128 KB cartridge",
-		"OSS 'M019' 16 KB cartridge",
+		"OSS 'M091' 16 KB cartridge",
 		"One chip 16 KB 5200 cartridge",
 		"Atrax 128 KB cartridge",
 		"Bounty Bob 40 KB cartridge"
@@ -1518,6 +1518,9 @@ void ReadCharacterSet( void )
 
 /*
 $Log$
+Revision 1.19  2001/10/08 21:03:10  fox
+corrected stack bug (thanks Vasyl) and renamed some cartridge types
+
 Revision 1.18  2001/10/05 10:21:52  fox
 added Bounty Bob Strikes Back cartridge for 800/XL/XE
 
