@@ -97,6 +97,7 @@
 #include <SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #ifdef linux
 #define LPTJOY	1
@@ -123,7 +124,7 @@
 #include "diskled.h"
 #include "devices.h"
 #include "cpu.h"
-#include "memory-d.h"
+#include "memory.h"
 #include "pia.h"
 #include "log.h"
 
@@ -1608,6 +1609,10 @@ int main(int argc, char **argv)
 
 /*
  $Log$
+ Revision 1.29  2002/12/14 11:02:56  jacek_poplawski
+
+ updated audio stuff (mzpokey, stereo, 16bit audio)
+
  Revision 1.28  2002/08/18 20:24:12  joy
  MacOSX needs SetPalette private
 
