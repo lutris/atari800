@@ -3,9 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define FALSE   0
-#define TRUE    1
-
 #include "atari.h"
 #include "prompts.h"
 #include "rt-config.h"
@@ -50,8 +47,6 @@ int enable_sio_patch;
 int enable_h_patch;
 int enable_p_patch;
 int disk_directories;
-
-extern int Ram256;
 
 /* If another default path config path is defined use it
    otherwise use the default one */
