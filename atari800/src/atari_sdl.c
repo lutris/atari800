@@ -1270,7 +1270,15 @@ int Atari_Exit(int run_monitor)
 		if (FULLSCREEN) {
 			SwitchFullscreen();
 		}
+#ifdef SOUND
+		if (sound_enabled)
+			SDL_PauseAudio(1);
+#endif
 		restart = monitor();
+#ifdef SOUND
+		if (sound_enabled)
+			SDL_PauseAudio(0);
+#endif
 	}
 	else {
 		restart = FALSE;
@@ -1876,6 +1884,9 @@ int main(int argc, char **argv)
 
 /*
  $Log$
+ Revision 1.41  2005/01/06 08:39:13  joy
+ quick hack to get monitor in SDL working
+
  Revision 1.40  2004/12/28 21:32:31  joy
  unicode based keyboard handling
 
