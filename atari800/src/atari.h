@@ -1,6 +1,5 @@
-/* $Id$ */
-#ifndef __ATARI__
-#define	__ATARI__
+#ifndef _ATARI_H_
+#define	_ATARI_H_
 
 #include "config.h"
 
@@ -225,10 +224,13 @@ int Atari800_Exit(int run_monitor);
 void Atari800_UpdatePatches(void);
 void atari_sync(void);
 
-#endif
+#endif /* _ATARI_H_ */
 
 /*
 $Log$
+Revision 1.35  2003/02/10 11:22:32  joy
+preparing for 1.3.0 release
+
 Revision 1.34  2003/02/09 22:00:18  joy
 updated
 
