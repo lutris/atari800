@@ -170,7 +170,7 @@ void Atari800_RunEsc(UBYTE esc_code)
 	crash_address = regPC;
 	crash_afterCIM = regPC + 2;
 	crash_code = dGetByte(crash_address);
-	ui((UBYTE *) atari_screen);
+	ui();
 #else
 	Aprint("Invalid ESC Code %x at Address %x", esc_code, regPC - 2);
 	if (!Atari800_Exit(TRUE))
@@ -600,7 +600,7 @@ int Atari800_Initialise(int *argc, char *argv[])
 		}
 		if (r > 0) {
 			ui_is_active = TRUE;
-			cart_type = SelectCartType((UBYTE *) atari_screen, r);
+			cart_type = SelectCartType(r);
 			ui_is_active = FALSE;
 			CART_Start();
 		}
@@ -819,7 +819,9 @@ void atari_sync(void)
 
 void Atari800_Frame(void)
 {
+#ifndef BASIC
 	static int refresh_counter = 0;
+#endif
 	switch (key_code) {
 	case AKEY_COLDSTART:
 		Coldstart();
@@ -835,7 +837,7 @@ void Atari800_Frame(void)
 #ifdef SOUND
 		Sound_Pause();
 #endif
-		ui((UBYTE *) atari_screen);
+		ui();
 #ifdef SOUND
 		Sound_Continue();
 #endif
@@ -1048,6 +1050,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.57  2005/03/08 04:48:19  pfusik
+tidied up a little
+
 Revision 1.56  2005/03/05 12:28:24  pfusik
 support for special AKEY_*, refresh rate control and atari_sync()
 moved to Atari800_Frame()
