@@ -675,6 +675,7 @@ void Atari800_Frame(int mode)
 		if (!emu_too_fast)
 			ShowRealSpeed(atari_screen);
 #endif
+		INPUT_DrawMousePointer();
 		break;
 	}
 	POKEY_Frame();
@@ -816,6 +817,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.23  2001/09/27 09:34:32  fox
+called INPUT_Initialise
+
 Revision 1.22  2001/09/21 17:09:05  fox
 main() is now in platform-dependent code, should call Atari800_Initialise
 and Atari800_Frame
