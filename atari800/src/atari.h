@@ -70,6 +70,13 @@ extern int xpos_limit;
 /* if tv_mod is enum, max_ypos is (tv_mod == TV_PAL ? 312 : 262) */
 
 extern ULONG *atari_screen;
+#ifdef DIRTYRECT
+#ifndef CLIENTUPDATE
+extern UBYTE *screen_dirty;
+#endif
+#endif
+void entire_screen_dirty();
+
 #ifdef BITPL_SCR
 extern ULONG *atari_screen_b;
 extern ULONG *atari_screen1;
@@ -221,6 +228,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.25  2001/12/31 08:44:53  joy
+updated
+
 Revision 1.24  2001/12/14 17:18:54  joy
 version++
 
