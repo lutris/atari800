@@ -1,5 +1,3 @@
-/* $Id */
-
 #include "antic.h"
 #include "atari.h"
 #include "cassette.h"
@@ -464,7 +462,3 @@ void INPUT_DrawMousePointer(void)
 		ptr[ATARI_WIDTH / 2] ^= 0xffff;
 	}
 }
-
-/*
-$Log$
-*/
