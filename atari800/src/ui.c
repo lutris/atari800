@@ -25,6 +25,7 @@
 #include "sndsave.h"
 #include "cartridge.h"
 #include "rtime.h"
+#include "input.h"
 
 extern int refresh_rate;
 
@@ -1494,6 +1495,9 @@ void ReadCharacterSet( void )
 
 /*
 $Log$
+Revision 1.14  2001/09/17 18:17:53  fox
+enable_c000_ram -> ram_size = 52
+
 Revision 1.13  2001/09/17 18:14:01  fox
 machine, mach_xlxe, Ram256, os, default_system -> machine_type, ram_size
 
