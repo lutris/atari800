@@ -118,6 +118,8 @@ int RtConfigLoad(const char *alternate_config_filename)
 
 	RtPresetDefaults();
 
+	*rtconfig_filename = '\0';
+
 	/* if alternate config filename is passed then use it */
 	if (alternate_config_filename != NULL && *alternate_config_filename > 0) {
 		strncpy(rtconfig_filename, alternate_config_filename, RTCFGNAME_MAX);
@@ -125,7 +127,6 @@ int RtConfigLoad(const char *alternate_config_filename)
 	}
 	/* else use the default config name under the HOME folder */
 	else {
-		*rtconfig_filename = '\0';
 		char *home = getenv("HOME");
 		if (home != NULL) {
 			int len;
@@ -462,6 +463,9 @@ void RtConfigUpdate(void)
 
 /*
 $Log$
+Revision 1.13  2003/02/09 21:19:59  joy
+reworked searching for config file
+
 Revision 1.12  2002/04/07 19:35:40  joy
 remove non ANSI t parameter in fopen
 
