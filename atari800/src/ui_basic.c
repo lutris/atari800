@@ -1,3 +1,5 @@
+/* $Id$ */
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <string.h>
@@ -130,6 +132,7 @@ int GetKeyPress(UBYTE * screen)
 	}
 
 	do {
+		atari_sync();
 		keycode = Atari_Keyboard();
 	} while (keycode == AKEY_NONE);
 
@@ -985,3 +988,6 @@ void BasicUIInit()
 }
 
 
+/*
+$Log$
+*/
