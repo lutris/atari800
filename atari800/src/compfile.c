@@ -27,10 +27,6 @@
 #define MAX_PATH 128
 #endif
 
-extern int SIO_Mount(int diskno, const char *filename, int b_open_readonly );
-extern void Set_Temp_File( int diskno );
-extern void SIO_Dismount(int diskno);
-
 /* Size of memory buffer ZLIB should use when decompressing files */
 #define ZLIB_BUFFER_SIZE	32767
 
@@ -654,6 +650,9 @@ static long soffset()
 
 /*
 $Log$
+Revision 1.5  2001/04/15 09:14:33  knik
+zlib_capable -> have_libz (autoconf compatibility)
+
 Revision 1.4  2001/03/25 06:57:35  knik
 open() replaced by fopen()
 
