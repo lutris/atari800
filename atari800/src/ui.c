@@ -546,8 +546,9 @@ List *GetDirectory(char *directory)
 	char fullfilename[MAX_FILENAME_LEN];
 	char *filepart;
 #ifdef DOS_DRIVES
-	char *letter = "C:";
-	char *letter2 = "[C:]";
+        /* strdup to avoid writing to string constants */
+	char *letter = strdup("C:");
+	char *letter2 = strdup("[C:]");
 #ifdef __DJGPP__
 	unsigned short s_backup = _djstat_flags;
 	_djstat_flags = _STAT_INODE | _STAT_EXEC_EXT | _STAT_EXEC_MAGIC | _STAT_DIRSIZE |
@@ -1450,4 +1451,7 @@ void ReadCharacterSet( void )
 
 /*
 $Log$
+Revision 1.5  2001/03/18 06:34:58  knik
+WIN32 conditionals removed
+
 */
