@@ -113,9 +113,9 @@ void Sound_Initialise(int *argc, char *argv[])
 		}
 
 #ifdef STEREO
-		Pokey_sound_init(FREQ_17_EXACT, dsprate, 2, 0, 0);
+		Pokey_sound_init(FREQ_17_EXACT, dsprate, 2, 0);
 #else
-		Pokey_sound_init(FREQ_17_EXACT, dsprate, 1, 0, 0);
+		Pokey_sound_init(FREQ_17_EXACT, dsprate, 1, 0);
 #endif
 	}
 }
@@ -168,6 +168,9 @@ void Sound_Update(void)
 
 /*
  $Log$
+ Revision 1.10  2003/01/27 13:14:53  joy
+ Jason's changes: either PAGED_ATTRIB support (mostly), or just clean up.
+
  Revision 1.9  2002/12/08 20:33:27  knik
  new arguments in Pokey_sound_init call
 

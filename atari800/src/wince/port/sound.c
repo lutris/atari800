@@ -105,7 +105,7 @@ static int initsound_dx(void)
 
   IDirectSoundBuffer_Play(pDSB, 0, 0, DSBPLAY_LOOPING);
 
-  Pokey_sound_init(FREQ_17_EXACT, dsprate, 1);
+  Pokey_sound_init(FREQ_17_EXACT, dsprate, 1, 0);
 
   samples = dsprate * snddelay / 1000;
 
@@ -306,7 +306,7 @@ static int initsound_wav(void)
       waves[i].dwFlags |= WHDR_DONE;
     }
 
-  Pokey_sound_init(FREQ_17_EXACT, dsprate, 1);
+  Pokey_sound_init(FREQ_17_EXACT, dsprate, 1, 0);
 
   issound = SOUND_WAV;
   return 0;
@@ -453,6 +453,13 @@ void Sound_Continue(void)
 
 /*
 $Log$
+Revision 1.2  2002/01/22 00:17:21  vasyl
+Updating WinCE port. A lot of changes, the most important are:
+fixed more keyboard bugs;
+support for monochrome and paletted devices;
+speedups in graphics code;
+port-specific UI driver (pass-through).
+
 Revision 1.6  2001/12/04 13:09:06  joy
 DirectSound buffer creation error fixed by Nathan
 

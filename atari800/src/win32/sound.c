@@ -105,9 +105,9 @@ static int initsound_dx(void)
 
   IDirectSoundBuffer_Play(pDSB, 0, 0, DSBPLAY_LOOPING);
 
+  Pokey_set_quality(quality);	/* is this really needed? */
   Pokey_sound_init(FREQ_17_EXACT, dsprate, 1,
-		   (stereo ? SND_STEREO : 0) | (bit16 ? SND_BIT16 : 0),
-		   quality);
+		   (stereo ? SND_STEREO : 0) | (bit16 ? SND_BIT16 : 0));
 
   samples = dsprate * snddelay / 1000;
 
@@ -318,9 +318,9 @@ static int initsound_wav(void)
       waves[i].dwFlags |= WHDR_DONE;
     }
 
+  Pokey_set_quality(quality);	/* is this really needed? */
   Pokey_sound_init(FREQ_17_EXACT, dsprate, 1,
-		   (stereo ? SND_STEREO : 0) | (bit16 ? SND_BIT16 : 0),
-		   quality);
+		   (stereo ? SND_STEREO : 0) | (bit16 ? SND_BIT16 : 0));
 
   issound = SOUND_WAV;
   return 0;
@@ -478,6 +478,9 @@ void Sound_Continue(void)
 
 /*
 $Log$
+Revision 1.10  2003/02/07 17:23:58  knik
+fixed -help option processing
+
 Revision 1.9  2003/01/06 17:12:31  knik
 added 16 bit and quality options
 fixed wave output buffer size
