@@ -55,7 +55,6 @@ void CartManagement();
 int RunExe();
 void SelectSystem();
 void SetSoundType();
-void SoundRecording();
 void SelectArtifacting();
 void AtariSettings();
 int SaveState();
@@ -772,6 +771,12 @@ int CrashMenu()
 
 /*
 $Log$
+Revision 1.30  2002/03/30 06:19:28  vasyl
+Dirty rectangle scheme implementation part 2.
+All video memory accesses everywhere are going through the same macros
+in ANTIC.C. UI_BASIC does not require special handling anymore. Two new
+functions are exposed in ANTIC.H for writing to video memory.
+
 Revision 1.28  2002/01/10 16:46:42  joy
 new cartridge type added
 
