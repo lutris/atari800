@@ -747,7 +747,7 @@ static char old_s[sizeof(s)]=""; /*GOLDA CHANGED*/
 				ts++;
 			}
 		}
-#ifndef PAGED_MEM
+#ifndef PAGED_ATTRIB
 		else if (strcmp(t, "ROM") == 0) {
 			UWORD addr1;
 			UWORD addr2;
@@ -1389,6 +1389,9 @@ UWORD assembler(UWORD addr)
 
 /*
 $Log$
+Revision 1.10  2002/07/04 12:40:19  pfusik
+fixed optype6502[] to match unofficial instructions
+
 Revision 1.9  2002/03/19 13:17:02  joy
 Piotrs changes
 

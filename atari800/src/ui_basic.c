@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include "rt-config.h"
 #include "atari.h"
+#include "antic.h"
 #include "list.h"
 #include "ui.h"
 #include "log.h"
@@ -994,6 +995,9 @@ void BasicUIInit()
 
 /*
 $Log$
+Revision 1.7  2002/06/12 06:40:41  vasyl
+Fixed odd behavior of Up button on the first item in file selector
+
 Revision 1.6  2002/03/30 06:19:28  vasyl
 Dirty rectangle scheme implementation part 2.
 All video memory accesses everywhere are going through the same macros

@@ -1,6 +1,7 @@
 /* $Id$ */
 #include <stdio.h>
 #include <unistd.h>
+#include <string.h>
 
 #include "config.h"
 
@@ -167,6 +168,9 @@ void Sound_Update(void)
 
 /*
  $Log$
+ Revision 1.9  2002/12/08 20:33:27  knik
+ new arguments in Pokey_sound_init call
+
  Revision 1.8  2002/08/07 08:43:58  joy
  ALL printf->Aprint, in help_only doesn't initialize the sound
 

@@ -2058,7 +2058,11 @@ void Device_UpdatePatches(void)
 	if (enable_h_patch) {		/* enable H: device */
 		/* change memory attributex for the area, where we put
 		   H: handler table and patches */
+#ifndef PAGED_ATTRIB
 		SetROM(H_DEVICE_BEGIN, H_DEVICE_END);
+#else
+#warning H: device not working yet
+#endif
 		/* set handler table */
 		dPutWord(H_TABLE_ADDRESS + DEVICE_TABLE_OPEN, H_PATCH_OPEN - 1);
 		dPutWord(H_TABLE_ADDRESS + DEVICE_TABLE_CLOS, H_PATCH_CLOS - 1);
@@ -2092,6 +2096,9 @@ void Device_UpdatePatches(void)
 
 /*
 $Log$
+Revision 1.15  2003/01/27 12:55:23  joy
+harddisk emulation now fully supports subdirectories.
+
 Revision 1.12  2001/10/03 16:40:54  fox
 rewritten escape codes handling,
 corrected Device_isvalid (isalnum((char) 0x9b) == 1 !)
