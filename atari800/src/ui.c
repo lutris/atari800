@@ -609,12 +609,6 @@ void ui(UBYTE* screen)
 	int option = 0;
 	int done = FALSE;
 
-#ifdef CURSES
-	char *screenbackup = malloc(40 * 24);
-	if (screenbackup)
-		dCopyFromMem(dGetWordAligned(88), screenbackup, 40 * 24);	/* backup of textmode screen */
-#endif
-
 	ui_is_active = TRUE;
 
 	/* Sound_Active(FALSE); */
@@ -708,12 +702,6 @@ void ui(UBYTE* screen)
 			exit(0);
 		}
 	}
-#ifdef CURSES
-	if (screenbackup) {
-		dCopyToMem(screenbackup, dGetWordAligned(88), 40 * 24);	/* restore textmode screen */
-		free(screenbackup);
-	}
-#endif
 	/* Sound_Active(TRUE); */
 	ui_is_active = FALSE;
 	while (Atari_Keyboard() != AKEY_NONE);	/* flush keypresses */
@@ -771,6 +759,9 @@ int CrashMenu()
 
 /*
 $Log$
+Revision 1.22  2001/10/10 21:35:00  fox
+corrected a typo
+
 Revision 1.21  2001/10/10 07:00:45  joy
 complete refactoring of UI by Vasyl
 
