@@ -57,7 +57,7 @@ void Sound_Initialise(int *argc, char *argv[])
 	*argc = j;
 
 	if (sound_enabled) {
-		if ((dsp_fd = open(dspname, O_WRONLY)) == -1) {
+		if ((dsp_fd = open(dspname, O_WRONLY|O_NONBLOCK)) == -1) {
 			perror(dspname);
 			sound_enabled = 0;
 			return;
@@ -163,6 +163,9 @@ void Sound_Update(void)
 
 /*
  $Log$
+ Revision 1.4  2001/04/08 05:59:32  knik
+ sound_pause/continue removed if no sound used
+
  Revision 1.3  2001/03/24 06:28:07  knik
  help fixed and control message removed
 
