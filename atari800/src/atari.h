@@ -86,9 +86,6 @@ extern unsigned int screenline_cpu_clock;
 
 enum ESCAPE {
 	ESC_SIOV,
-#ifdef MONITOR_BREAK
-	ESC_BREAK,
-#endif
 /*
  * These are special device escape codes required by the Basic version
  */
