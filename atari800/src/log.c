@@ -40,13 +40,13 @@ char memory_log[MAX_LOG_SIZE]="";
 void Aprint(char *format, ... )
 {
 	va_list args;
-	char buffer[256];
+	char buffer[8192];
 #ifdef BUFFERED_LOG
 	int buflen;
 #endif
 
 	va_start(args, format);
-	vsprintf(buffer, format, args);
+	vsnprintf(buffer, sizeof(buffer)-1 /* -1 for the strcat(\n) */, format, args);
 	va_end(args);
 
 	strcat(buffer, "\n");
@@ -75,6 +75,9 @@ void Aflushlog(void)
 
 /*
 $Log$
+Revision 1.6  2003/10/25 18:40:54  joy
+various little updates for better MacOSX support
+
 Revision 1.5  2003/02/24 09:33:01  joy
 header cleanup
 
