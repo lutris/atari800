@@ -674,7 +674,7 @@ int FileSelector(UBYTE * screen, char *directory, char *full_filename)
 		_fixpath(directory, helpdir);
 		strcpy(directory, helpdir);
 #else
-		if (strcmp(directory, ".") == 0)
+		if (directory[0] == '\0' || strcmp(directory, ".") == 0)
 			getcwd(directory, FILENAME_MAX);
 #endif
 		next_dir = FALSE;
@@ -1028,6 +1028,9 @@ void BasicUIInit()
 
 /*
 $Log$
+Revision 1.14  2005/03/03 09:27:46  pfusik
+moved atari_screen to screen.h
+
 Revision 1.13  2004/09/24 15:28:40  sba
 Fixed NULL pointer access in filedialog, which happened if no files are within the directory.
 
