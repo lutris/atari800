@@ -29,7 +29,7 @@
 #include <process.h>
 #include "config.h"
 #include "main.h"
-#include "screen.h"
+#include "screen_win32.h"
 #include "keyboard.h"
 #include "sound.h"
 #include "input.h"
@@ -244,6 +244,9 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
 /*
 $Log$
+Revision 1.10  2005/02/23 16:47:54  pfusik
+PNG screenshots
+
 Revision 1.9  2003/02/24 09:33:33  joy
 header cleanup
 

@@ -30,12 +30,11 @@
 #include "config.h"
 #include "platform.h"
 #include "input.h"
-#include "screen.h"
+#include "screen_win32.h"
 #include "keyboard.h"
 #include "main.h"
 #include "sound.h"
 #include "monitor.h"
-#include "diskled.h"
 
 static int usesnd = 1;
 
@@ -417,6 +416,9 @@ int Atari_POT(int num)
 
 /*
 $Log$
+Revision 1.7  2003/02/24 09:33:30  joy
+header cleanup
+
 Revision 1.6  2001/12/04 13:07:22  joy
 LED_lastline apparently disappeared from the Atari800 core so remove it here, too (suggested by Nathan)
 
