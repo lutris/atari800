@@ -105,6 +105,9 @@ static BOOL initwin(HINSTANCE hInstance, int nCmdShow)
       return 1;
     }
 
+  ShowWindow(hWndMain, nCmdShow);
+  UpdateWindow(hWndMain);
+
   return 0;
 }
 
@@ -164,6 +167,9 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
 /*
 $Log$
+Revision 1.2  2001/04/08 05:51:44  knik
+sound calls update
+
 Revision 1.1  2001/03/18 07:56:48  knik
 win32 port
 
