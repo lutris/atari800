@@ -335,7 +335,6 @@ char *safe_strncpy(char *dest, const char *src, size_t size)
 
 int Atari800_Initialise(int *argc, char *argv[])
 {
-	int error = FALSE;
 	int diskno = 1;
 	int i, j;
 	char *run_direct=NULL;
@@ -570,16 +569,9 @@ int Atari800_Initialise(int *argc, char *argv[])
 	for (i = 1; i < *argc; i++) {
 		if (!SIO_Mount(diskno++, argv[i], FALSE)) {
 			Aprint("Disk File %s not found", argv[i]);
-			error = TRUE;
 		}
 	}
 
-	if (error) {
-		Aprint("Usage: %s [options] [diskfile1...diskfile8]", argv[0]);
-		Aprint("\t-help         Extended Help");
-		Atari800_Exit(FALSE);
-		return FALSE;
-	}
 	/*
 	 * Install CTRL-C Handler
 	 */
@@ -1039,6 +1031,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.50  2003/08/05 13:32:08  joy
+more options documented
+
 Revision 1.49  2003/08/05 13:22:56  joy
 security fix
 

@@ -28,6 +28,12 @@
 #include "config.h"
 #include "log.h"
 
+#ifdef MACOSX
+#  define PRINT(a) ControlManagerMessagePrint(a)
+#else
+#  define PRINT(a) printf("%s", a)
+#endif
+
 #define MAX_LOG_SIZE		8192
 char memory_log[MAX_LOG_SIZE]="";
 
@@ -43,8 +49,9 @@ void Aprint(char *format, ... )
 	vsprintf(buffer, format, args);
 	va_end(args);
 
-#ifdef BUFFERED_LOG
 	strcat(buffer, "\n");
+
+#ifdef BUFFERED_LOG
 	buflen = strlen(buffer);
 
 	if ((strlen(memory_log) + strlen(buffer) + 1) > MAX_LOG_SIZE)
@@ -52,7 +59,7 @@ void Aprint(char *format, ... )
 
 	strcat(memory_log, buffer);
 #else
-	printf("%s\n", buffer);
+	PRINT(buffer);
 #endif
 }
 
@@ -68,6 +75,9 @@ void Aflushlog(void)
 
 /*
 $Log$
+Revision 1.5  2003/02/24 09:33:01  joy
+header cleanup
+
 Revision 1.4  2002/04/07 05:44:47  vasyl
 Log buffer is completely hidden inside C file (no extern in header). This allows
 log-less ports to save extra 8K.
