@@ -358,7 +358,6 @@ void Sound_Initialise(int *argc, char *argv[])
 #endif
       else
       {
-        help = TRUE;
 	if (strcmp(argv[i], "-help") == 0)
 	{
 	  Aprint("\t-sound			enable sound\n"
@@ -371,6 +370,7 @@ void Sound_Initialise(int *argc, char *argv[])
 		 "\t-bit16			use 16 bit mixing\n"
 		 "\t-quality <quality level>	set sound quality\n"
 		);
+	  help = TRUE;
 	}
 	argv[j++] = argv[i];
       }
@@ -478,6 +478,11 @@ void Sound_Continue(void)
 
 /*
 $Log$
+Revision 1.9  2003/01/06 17:12:31  knik
+added 16 bit and quality options
+fixed wave output buffer size
+better direct sound buffer creation flags
+
 Revision 1.8  2002/12/30 17:37:23  knik
 don't initialise engine when printing help
 
