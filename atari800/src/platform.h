@@ -16,7 +16,6 @@ void Atari_DisplayScreen (UBYTE *screen);
 int Atari_PORT(int num);
 int Atari_TRIG(int num);
 int Atari_POT(int num);
-int Atari_CONSOL(void);
 int Atari_PEN(int vertical);
 #if defined(SET_LED) && defined(NO_LED_ON_SCREEN)
 void Atari_Set_LED(int how);
@@ -26,4 +25,7 @@ void Atari_Set_LED(int how);
 
 /*
 $Log$
+Revision 1.2  2001/03/18 06:34:58  knik
+WIN32 conditionals removed
+
 */
