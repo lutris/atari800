@@ -261,7 +261,7 @@ void ModeInfo()
 void SetVideoMode(int w, int h, int bpp)
 {
 	if (FULLSCREEN)
-		MainScreen = SDL_SetVideoMode(w, h, bpp, SDL_FULLSCREEN | SDL_HWSURFACE);
+		MainScreen = SDL_SetVideoMode(w, h, bpp, SDL_FULLSCREEN);
 	else
 		MainScreen = SDL_SetVideoMode(w, h, bpp, SDL_RESIZABLE);
 	if (MainScreen == NULL) {
@@ -1313,4 +1313,14 @@ int main(int argc, char **argv)
 
 /*
  $Log$
+ Revision 1.16  2001/12/29 21:34:08  joy
+ fullscreen by default
+ define NVIDIA if you have nVIDIA card that can't set 336x240 fullscreen
+ Aflushlog() calls removed - it should be called only after the screen is back to text mode. For X11 compile it with BUFFERED_LOG disabled.
+ If there's just one real joystick then SWAP_JOYSTICK is enabled automatically so that the other player can use numeric block for playing.
+ STICK1 fixed.
+ TRIG0 and TRIG1 fixed. Swapping of TRIGs fixed.
+ joy keys must not be passed to the emulator otherwise some games will stop (RallySpeedway and others)
+ dates in changelog fixed (it was December for sure)
+
  */
