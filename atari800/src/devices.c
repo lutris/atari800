@@ -1736,7 +1736,7 @@ void Device_HHINIT(void)
 
 static FILE *phf = NULL;
 void Device_PHCLOS(void);
-static char *spool_file = NULL;
+static char spool_file[13];
 
 void Device_PHOPEN(void)
 {
@@ -1746,8 +1746,8 @@ void Device_PHOPEN(void)
 	if (phf)
 		Device_PHCLOS();
 
-	spool_file = tmpnam(NULL);
-	phf = fopen(spool_file, "w");
+	strcpy(spool_file,"SPOOL_XXXXXX\0");
+	phf = fdopen(mkstemp(spool_file), "w");
 	if (phf) {
 		regY = 1;
 		ClrN;
@@ -2119,6 +2119,9 @@ void Device_UpdatePatches(void)
 
 /*
 $Log$
+Revision 1.17  2003/02/24 09:32:54  joy
+header cleanup
+
 Revision 1.16  2003/01/27 13:14:54  joy
 Jason's changes: either PAGED_ATTRIB support (mostly), or just clean up.
 

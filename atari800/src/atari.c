@@ -823,7 +823,9 @@ void Atari800_Frame(int mode)
 		break;
 	case EMULATE_FULL:
 		ANTIC_Frame(TRUE);
+#ifdef SHOW_DISK_LED
 		LED_Frame();
+#endif
 #ifdef SNAILMETER
 		if (!emu_too_fast)
 			ShowRealSpeed(atari_screen);
@@ -994,6 +996,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.44  2003/02/24 09:32:32  joy
+header cleanup
+
 Revision 1.43  2003/02/10 11:22:32  joy
 preparing for 1.3.0 release
 

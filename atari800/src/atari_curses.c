@@ -22,7 +22,7 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#ifdef NCURSES
+#ifdef USE_NCURSES
 #include	<ncurses.h>
 #else
 #include	<curses.h>
@@ -713,6 +713,9 @@ int main(int argc, char **argv)
 }
 /*
 $Log$
+Revision 1.10  2003/02/24 09:32:40  joy
+header cleanup
+
 Revision 1.9  2003/02/08 23:52:17  joy
 little cleanup
 

@@ -512,7 +512,7 @@ void SDL_Sound_Initialise(int *argc, char *argv[])
 
 int Atari_Keyboard(void)
 {
-	static int lastkey = AKEY_NONE, key_pressed = 0;
+	static int lastkey = AKEY_NONE, key_pressed = 0, key_control = 0;
 
 	SDL_Event event;
 	if (SDL_PollEvent(&event)) {
@@ -600,6 +600,12 @@ int Atari_Keyboard(void)
 		key_shift = 1;
 	else
 		key_shift = 0;
+
+    // CONTROL STATE
+	if ((kbhits[SDLK_LCTRL]) || (kbhits[SDLK_RCTRL]))
+		key_control = 1;
+	else
+		key_control = 0;
 
 	// OPTION / SELECT / START keys
 	key_consol = CONSOL_NONE;
@@ -851,7 +857,7 @@ int Atari_Keyboard(void)
 	case SDLK_TAB:
 		if (key_shift)
 			return AKEY_SETTAB;
-		else if (CONTROL)
+		else if (key_control)
 			return AKEY_CLRTAB;
 		else
 			return AKEY_TAB;
@@ -1621,7 +1627,9 @@ int main(int argc, char **argv)
 		Device_Frame();
 		GTIA_Frame();
 		ANTIC_Frame(TRUE);
+#ifdef SHOW_DISK_LED
 		LED_Frame();
+#endif
 		POKEY_Frame();
 		nframes++;
 		atari_sync();
@@ -1637,6 +1645,9 @@ int main(int argc, char **argv)
 
 /*
  $Log$
+ Revision 1.35  2003/02/24 09:32:42  joy
+ header cleanup
+
  Revision 1.34  2003/02/18 09:07:52  joy
  more Atari keys supported: CARET, HELP, CAPSLOCK, SETTAB, CLRTAB, DELETE_LINE, DELETE_CHAR, INSERT_LINE, INSERT_CHAR
 
