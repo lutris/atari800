@@ -614,7 +614,7 @@ static char old_s[sizeof(s)]=""; /*GOLDA CHANGED*/
 				printf("\n");
 				nlines++;
 
-				if (nlines == 15) {
+				if (!done && nlines == 15) {
 					char buf[100];
 					printf("Press return to continue: ");
 					fgets(buf, sizeof(buf), stdin);
@@ -1389,6 +1389,9 @@ UWORD assembler(UWORD addr)
 
 /*
 $Log$
+Revision 1.7  2001/07/20 19:57:07  fox
+not displaying rom_inserted in "PIA" command
+
 Revision 1.3  2001/03/25 06:57:36  knik
 open() replaced by fopen()
 
