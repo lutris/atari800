@@ -101,6 +101,13 @@ void SelectSystem()
 	int system = 0;
 	int nsystems = sizeof(machine)/sizeof(machine[0]);
 
+	int i;
+	for (i = 0; i < nsystems; i++)
+		if (machine_type == machine[i].type && ram_size == machine[i].ram) {
+			system = i;
+			break;
+		}
+
 	system = ui_driver->fSelect("Select System", FALSE, system, menu_array, NULL);
 
 	if (system >= 0 && system < nsystems)
@@ -761,6 +768,9 @@ int CrashMenu()
 
 /*
 $Log$
+Revision 1.24  2001/10/12 07:56:15  fox
+added 8 KB and 4 KB cartridges for 5200
+
 Revision 1.23  2001/10/11 08:40:29  fox
 removed CURSES-specific code
 
