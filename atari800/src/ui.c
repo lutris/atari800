@@ -101,7 +101,7 @@ void SelectSystem()
 	int system = 0;
 	int nsystems = sizeof(machine)/sizeof(machine[0]);
 
-	system = ui_driver->fSelect("SelectSystem", FALSE, system, menu_array, NULL);
+	system = ui_driver->fSelect("Select System", FALSE, system, menu_array, NULL);
 
 	if (system >= 0 && system < nsystems)
 	{
@@ -771,6 +771,9 @@ int CrashMenu()
 
 /*
 $Log$
+Revision 1.21  2001/10/10 07:00:45  joy
+complete refactoring of UI by Vasyl
+
 Revision 1.20  2001/10/09 00:43:31  fox
 OSS 'M019' -> 'M091'
 
