@@ -5,6 +5,7 @@
 #include "config.h"
 #include "log.h"
 
+#define MAX_LOG_SIZE		8192
 char memory_log[MAX_LOG_SIZE]="";
 
 void Aprint(char *format, ... )
@@ -44,6 +45,9 @@ void Aflushlog(void)
 
 /*
 $Log$
+Revision 1.3  2001/12/04 14:17:52  joy
+Aflushlog() should be always available though it does nothing when BUFFERED_LOG is undefined
+
 Revision 1.2  2001/03/18 06:34:58  knik
 WIN32 conditionals removed
 
