@@ -123,7 +123,7 @@ int main(void)
 	/* sprintf(config_filename, "%s/.atari800", home); */
 	strcpy(config_filename, ".atari800");
 
-	fp = fopen(config_filename, "rt");
+	fp = fopen(config_filename, "r");
 	if (fp) {
 		printf("\nReading: %s\n\n", config_filename);
 
@@ -164,9 +164,9 @@ int main(void)
 		fclose(fp);
 	}
 
-	if ((fin = fopen("config.in", "rt")) == NULL)
+	if ((fin = fopen("config.in", "r")) == NULL)
 		exit(1);
-	if ((fp = fopen("config.h", "wt")) == NULL)
+	if ((fp = fopen("config.h", "w")) == NULL)
 		exit(1);
 	fprintf(fp, "/* This file is automaticaly generated. "
 			"Do not edit!\n"
@@ -288,7 +288,7 @@ int main(void)
 	}
 	fclose(fp);
 
-	fp = fopen(config_filename, "wt");
+	fp = fopen(config_filename, "w");
 	if (fp) {
 		printf("\nWriting: %s\n\n", config_filename);
 
@@ -311,6 +311,9 @@ int main(void)
 
 /*
 $Log$
+Revision 1.4  2001/04/15 09:16:05  knik
+autoconf compatible patch
+
 Revision 1.3  2001/03/25 07:05:55  knik
 use common name .atari800 in dos
 
