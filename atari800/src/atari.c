@@ -277,7 +277,7 @@ int main(int argc, char **argv)
 		else if (strcmp(argv[i], "-nopatch") == 0)
 			enable_sio_patch = FALSE;
 		else if (strcmp(argv[i], "-nopatchall") == 0)
-			enable_rom_patches = enable_sio_patch = FALSE;
+			enable_sio_patch = enable_h_patch = enable_p_patch = FALSE;
 		else if (strcmp(argv[i], "-pal") == 0)
 			tv_mode = TV_PAL;
 		else if (strcmp(argv[i], "-ntsc") == 0)
@@ -607,6 +607,23 @@ void Atari800_PutByte(UWORD addr, UBYTE byte)
 	}
 }
 
+void Atari800_UpdatePatches(void)
+{
+	if (machine == Atari) {
+		/* Restore unpatched OS */
+		memcpy(memory + 0xd800, atari_os, 0x2800);
+		/* Set patches */
+		PatchOS();
+	}
+	else if (mach_xlxe && PORTB & 1) {
+		/* Restore unpatched OS */
+		memcpy(memory + 0xc000, atari_os, 0x1000);
+		memcpy(memory + 0xd800, atari_os + 0x1800, 0x2800);
+		/* Set patches */
+		PatchOS();
+	}
+}
+
 #ifdef SNAILMETER
 static void ShowRealSpeed(ULONG * atari_screen)
 {
@@ -930,6 +947,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.8  2001/04/15 09:14:33  knik
+zlib_capable -> have_libz (autoconf compatibility)
+
 Revision 1.7  2001/04/08 05:57:12  knik
 sound calls update
 
