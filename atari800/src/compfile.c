@@ -17,7 +17,7 @@
 #include "config.h"
 #include "log.h"
 #ifdef HAVE_LIBZ
-#include "zlib.h"
+#include <zlib.h>
 #endif
 
 /* Size of memory buffer ZLIB should use when decompressing files */
@@ -643,6 +643,9 @@ static long soffset()
 
 /*
 $Log$
+Revision 1.7  2001/09/08 07:49:33  knik
+unused definitions and inclusions removed
+
 Revision 1.6  2001/07/25 13:03:35  fox
 removed unused declarations
 
