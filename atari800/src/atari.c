@@ -563,10 +563,12 @@ UBYTE Atari800_GetByte(UWORD addr)
 	UBYTE byte = 0xff;
 	switch (addr & 0xff00) {
 	case 0x4f00:
+	case 0x8f00:
 		CART_BountyBob1(addr);
 		byte = 0;
 		break;
 	case 0x5f00:
+	case 0x9f00:
 		CART_BountyBob2(addr);
 		byte = 0;
 		break;
@@ -599,9 +601,11 @@ void Atari800_PutByte(UWORD addr, UBYTE byte)
 {
 	switch (addr & 0xff00) {
 	case 0x4f00:
+	case 0x8f00:
 		CART_BountyBob1(addr);
 		break;
 	case 0x5f00:
+	case 0x9f00:
 		CART_BountyBob2(addr);
 		break;
 	case 0xd000:				/* GTIA */
@@ -914,6 +918,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.27  2001/10/03 16:49:24  fox
+added screen_visible_* variables, Update_LED -> LED_Frame
+
 Revision 1.26  2001/10/03 16:40:17  fox
 rewritten escape codes handling
 
