@@ -208,6 +208,7 @@ struct ATR_Header {
 #define MENU_MONITOR	15
 #define MENU_ABOUT		16
 #define MENU_EXIT		17
+#define MENU_CASSETTE   18
 
 int Atari800_Initialise(int *argc, char *argv[]);
 
@@ -228,6 +229,12 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.26  2002/03/29 10:39:09  vasyl
+Dirty rectangle scheme implementation. All accesses to video memory (except
+those in UI_BASIC.C) are converted to macros. Define symbol DIRTYRECT
+to enable dirty rectangle tracking. Global array screen_dirty contains dirty
+flags (per 8 horizontal pixels).
+
 Revision 1.25  2001/12/31 08:44:53  joy
 updated
 
