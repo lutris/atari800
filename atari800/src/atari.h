@@ -27,7 +27,7 @@
 #endif
 
 #ifdef SHM
-#define USE_COLOUR_TRANSLATION_TABLE
+/* #define USE_COLOUR_TRANSLATION_TABLE */
 #endif
 
 typedef enum {
@@ -437,6 +437,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.7  2001/04/15 09:10:52  knik
+atari_64_bit -> sizeof_long (autoconf compatibility)
+
 Revision 1.6  2001/03/25 07:00:05  knik
 removed o_binary define
 
