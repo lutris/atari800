@@ -1,3 +1,4 @@
+/* $Id$ */
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -70,9 +71,7 @@ UBYTE PIA_GetByte(UWORD addr)
 		default:
 			Aprint("Fatal Error in pia.c: PIA_GetByte(): Unknown machine\n");
 			Atari800_Exit(FALSE);
-#ifndef WIN32
 			exit(1);
-#endif
 			break;
 		}
 		break;
@@ -160,3 +159,7 @@ void PIAStateRead(void)
 	ReadUBYTE( &PORTA_mask, 1 );
 	ReadUBYTE( &PORTB_mask, 1 );
 }
+
+/*
+$Log$
+*/
