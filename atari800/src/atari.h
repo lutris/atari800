@@ -125,6 +125,14 @@ enum ESCAPE {
 	ESC_PHSPEC = 0xb5,
 	ESC_PHINIT = 0xb6,
 
+	ESC_ROPEN = 0xd0,
+	ESC_RCLOS = 0xd1,
+	ESC_RREAD = 0xd2,
+	ESC_RWRIT = 0xd3,
+	ESC_RSTAT = 0xd4,
+	ESC_RSPEC = 0xd5,
+	ESC_RINIT = 0xd6,
+
 	ESC_HHOPEN = 0xc0,
 	ESC_HHCLOS = 0xc1,
 	ESC_HHREAD = 0xc2,
@@ -228,6 +236,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.36  2003/02/24 09:32:37  joy
+header cleanup
+
 Revision 1.35  2003/02/10 11:22:32  joy
 preparing for 1.3.0 release
 
