@@ -138,19 +138,6 @@ static void uninitsound_dx(void)
   issound = SOUND_NONE;
 }
 
-void Sound_Continue(void)
-{
-#ifdef DIRECTX
-  if (issound != SOUND_DX)
-    return;
-  if (!pDSB)
-    return;
-  IDirectSoundBuffer_Restore(pDSB);
-  IDirectSoundBuffer_Play(pDSB, 0, 0, DSBPLAY_LOOPING);
-  IDirectSoundBuffer_GetCurrentPosition(pDSB, 0, &bufpos);
-#endif
-}
-
 static void sound_update_dx(void)
 {
   DWORD wc;
@@ -444,11 +431,27 @@ void Sound_Pause(void)
 #endif
 }
 
+void Sound_Continue(void)
+{
+#ifdef DIRECTX
+  if (issound != SOUND_DX)
+    return;
+  if (!pDSB)
+    return;
+  IDirectSoundBuffer_Restore(pDSB);
+  IDirectSoundBuffer_Play(pDSB, 0, 0, DSBPLAY_LOOPING);
+  IDirectSoundBuffer_GetCurrentPosition(pDSB, 0, &bufpos);
+#endif
+}
+
 #endif	/* SOUND */
 
 
 /*
 $Log$
+Revision 1.3  2001/04/08 05:50:16  knik
+standard wave output driver added; sound and directx conditional compile
+
 Revision 1.2  2001/03/24 10:13:43  knik
 -nosound option fixed
 
