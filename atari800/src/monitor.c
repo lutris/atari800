@@ -19,7 +19,6 @@ extern int instruction_count[256];
 #endif
 extern int cycles[256];
 
-extern int rom_inserted;
 extern UWORD dlist;
 
 #ifdef TRACE
@@ -1019,7 +1018,7 @@ static char old_s[sizeof(s)]=""; /*GOLDA CHANGED*/
 		}
 		else if (strcmp(t, "PIA") == 0) {
 			printf("PACTL=%02x      PBCTL=%02x     PORTA=%02x     "
-				   "PORTB=%02x   ROM inserted: %s\n", PACTL, PBCTL, PORTA, PORTB, rom_inserted ? "Yes" : "No");
+				   "PORTB=%02x\n", PACTL, PBCTL, PORTA, PORTB);
 		}
 		else if (strcmp(t, "GTIA") == 0) {
 			printf("HPOSP0=%02x    HPOSP1=%02x    HPOSP2=%02x    "
