@@ -353,6 +353,7 @@ int Atari800_Initialise(int *argc, char *argv[])
 	RTIME_Initialise(argc, argv);
 	SIO_Initialise (argc, argv);
 	CASSETTE_Initialise(argc, argv);
+	INPUT_Initialise(argc, argv);
 	Atari_Initialise(argc, argv);	/* Platform Specific Initialisation */
 
 	if (!atari_screen) {
@@ -815,6 +816,10 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.22  2001/09/21 17:09:05  fox
+main() is now in platform-dependent code, should call Atari800_Initialise
+and Atari800_Frame
+
 Revision 1.21  2001/09/21 17:00:57  fox
 part of keyboard handling moved to INPUT_Frame()
 
