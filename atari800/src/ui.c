@@ -718,7 +718,6 @@ void ui(UBYTE* screen)
 	/* Sound_Active(TRUE); */
 	ui_is_active = FALSE;
 	while (Atari_Keyboard() != AKEY_NONE);	/* flush keypresses */
-	entire_screen_dirty();
 }
 
 
@@ -744,7 +743,6 @@ int CrashMenu()
 		sprintf(bf,"!!! The Atari computer has crashed !!!\nCode $%02X (CIM) at address $%04X", crash_code, crash_address);
 
 		option = ui_driver->fSelect(bf, FALSE, option, menu_array, NULL);
-		entire_screen_dirty();
 
 		switch (option) {
 		case 0:			/* Power On Reset */
