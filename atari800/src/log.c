@@ -46,7 +46,11 @@ void Aprint(char *format, ... )
 #endif
 
 	va_start(args, format);
+#ifdef HAVE_VSNPRINTF
 	vsnprintf(buffer, sizeof(buffer)-1 /* -1 for the strcat(\n) */, format, args);
+#else
+	vsprintf(buffer, format, args);
+#endif
 	va_end(args);
 
 	strcat(buffer, "\n");
@@ -75,6 +79,9 @@ void Aflushlog(void)
 
 /*
 $Log$
+Revision 1.7  2003/11/13 13:09:02  joy
+buffer overflow fixed
+
 Revision 1.6  2003/10/25 18:40:54  joy
 various little updates for better MacOSX support
 
