@@ -706,8 +706,12 @@ int FileSelector(UBYTE * screen, char *directory, char *full_filename)
 				}
 				else if (item >= nitems) {	/* Scroll Left */
 					if ((offset - NROWS) >= 0)
+					{
 						offset -= NROWS;
-					item = item % nitems;
+						item = item % nitems;
+					}
+					else
+						item = 0;
 				}
 				else if (item == -2) {	/* Next directory */
 					DIR *dr;
@@ -990,6 +994,12 @@ void BasicUIInit()
 
 /*
 $Log$
+Revision 1.6  2002/03/30 06:19:28  vasyl
+Dirty rectangle scheme implementation part 2.
+All video memory accesses everywhere are going through the same macros
+in ANTIC.C. UI_BASIC does not require special handling anymore. Two new
+functions are exposed in ANTIC.H for writing to video memory.
+
 Revision 1.5  2001/11/29 12:36:42  joy
 copyright notice updated
 
