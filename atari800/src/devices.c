@@ -291,12 +291,13 @@ void Device_HHOPEN(void)
 		}
 		break;
 	case 8:
+	case 9:		/* write at the end of file (append) */
 		if (hd_read_only) {
 			regY = 135;	/* device is read only */
 			SetN;
 			break;
 		}
-		fp[fid] = fopen(fname, "wb");
+		fp[fid] = fopen(fname, temp == 9 ? "ab" : "wb");
 		if (fp[fid]) {
 			regY = 1;
 			ClrN;
