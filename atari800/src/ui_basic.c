@@ -101,7 +101,7 @@ unsigned char ascii_to_screen[128] =
 
 
 #define KB_DELAY		20
-#define KB_AUTOREPEAT		4
+#define KB_AUTOREPEAT		3
 
 int GetKeyPress(UBYTE * screen)
 {
@@ -990,4 +990,8 @@ void BasicUIInit()
 
 /*
 $Log$
+Revision 1.3  2001/10/11 17:27:22  knik
+added atari_sync() call in keyboard loop--keyboard is sampled
+at reasonable rate
+
 */
