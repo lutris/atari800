@@ -19,11 +19,7 @@ UBYTE PORTB;
 
 int xe_bank = 0;
 int selftest_enabled = 0;
-int Ram256 = 0;
 
-extern int mach_xlxe;
-
-int rom_inserted;
 UBYTE atari_basic[8192];
 UBYTE atari_os[16384];
 
@@ -136,7 +132,7 @@ void PIAStateSave(void)
 	SaveINT( &selftest_enabled, 1 );
 	SaveINT( &Ram256, 1 );
 
-	SaveINT( &rom_inserted, 1 );
+	SaveINT( &cartA0BF_enabled, 1 );
 
 	SaveUBYTE( &PORTA_mask, 1 );
 	SaveUBYTE( &PORTB_mask, 1 );
@@ -153,7 +149,7 @@ void PIAStateRead(void)
 	ReadINT( &selftest_enabled, 1 );
 	ReadINT( &Ram256, 1 );
 
-	ReadINT( &rom_inserted, 1 );
+	ReadINT( &cartA0BF_enabled, 1 );
 
 	ReadUBYTE( &PORTA_mask, 1 );
 	ReadUBYTE( &PORTB_mask, 1 );
