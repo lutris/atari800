@@ -395,16 +395,17 @@ struct ATR_Header {
 #define MENU_SOUND		4
 #define MENU_SOUND_RECORDING	5
 #define MENU_ARTIF		6
-#define MENU_SAVESTATE	7
-#define MENU_LOADSTATE	8
-#define MENU_PCX		9
-#define MENU_PCXI		10
-#define MENU_BACK		11
-#define MENU_RESETW		12
-#define MENU_RESETC		13
-#define MENU_MONITOR	14
-#define MENU_ABOUT		15
-#define MENU_EXIT		16
+#define MENU_PATCHES	7
+#define MENU_SAVESTATE	8
+#define MENU_LOADSTATE	9
+#define MENU_PCX		10
+#define MENU_PCXI		11
+#define MENU_BACK		12
+#define MENU_RESETW		13
+#define MENU_RESETC		14
+#define MENU_MONITOR	15
+#define MENU_ABOUT		16
+#define MENU_EXIT		17
 
 
 
@@ -426,6 +427,7 @@ int Initialise_Atari5200(void);
 int Atari800_Exit(int run_monitor);
 UBYTE Atari800_GetByte(UWORD addr);
 void Atari800_PutByte(UWORD addr, UBYTE byte);
+void Atari800_UpdatePatches(void);
 void AtariEscape(UBYTE esc_code);
 int Initialise_EmuOS(void);
 int Insert_Cartridge(char *filename);
