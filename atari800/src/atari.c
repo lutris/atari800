@@ -10,6 +10,7 @@
 #include <windows.h>
 #else
 #include <sys/time.h>
+#include <unistd.h>
 #endif
 
 #include "atari.h"
@@ -918,6 +919,12 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.34  2002/03/30 06:19:28  vasyl
+Dirty rectangle scheme implementation part 2.
+All video memory accesses everywhere are going through the same macros
+in ANTIC.C. UI_BASIC does not require special handling anymore. Two new
+functions are exposed in ANTIC.H for writing to video memory.
+
 Revision 1.32  2001/12/04 22:28:16  joy
 the speed regulation when -DUSE_CLOCK is enabled so that key autorepeat in UI works.
 
