@@ -13,6 +13,7 @@
 #include "gtia.h"
 #include "pokey.h"
 #include "prompts.h"
+#include "rt-config.h"
 
 #ifdef PROFILE
 extern int instruction_count[256];
@@ -1427,6 +1428,9 @@ UWORD assembler(UWORD addr)
 
 /*
 $Log$
+Revision 1.12  2003/01/27 14:13:02  joy
+Perry's cycle-exact ANTIC/GTIA emulation
+
 Revision 1.11  2003/01/27 13:14:53  joy
 Jason's changes: either PAGED_ATTRIB support (mostly), or just clean up.
 
