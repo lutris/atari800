@@ -59,7 +59,7 @@ extern int verbose;
 #define ATARI_WIDTH  384
 #define ATARI_HEIGHT 240
 
-#define ATARI_TITLE  "Atari 800 Emulator, Version 1.2.0"
+#define ATARI_TITLE  "Atari 800 Emulator, Version 1.2.1pre0"
 
 extern int xpos;
 extern int xpos_limit;
@@ -221,6 +221,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.23  2001/10/29 17:58:49  fox
+changed implementation of WSYNC/VCOUNT timing
+
 Revision 1.22  2001/10/10 06:58:31  joy
 version++
 
