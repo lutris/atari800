@@ -461,7 +461,9 @@ int main(int argc, char **argv)
 			"Unknown error");
 		}
 		if (r > 0) {
+			ui_is_active = TRUE;
 			cart_type = SelectCartType((UBYTE *) atari_screen, r);
+			ui_is_active = FALSE;
 			CART_Start();
 		}
 		if (cart_type != CART_NONE) {
@@ -912,6 +914,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.13  2001/08/06 13:11:19  fox
+hold_start support
+
 Revision 1.12  2001/08/03 12:48:55  fox
 cassette support
 
