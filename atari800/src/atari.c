@@ -830,7 +830,7 @@ void Atari800_Hardware(void)
 
 int zlib_capable(void)
 {
-#ifdef ZLIB_CAPABLE
+#ifdef HAVE_LIBZ
 	return TRUE;
 #else
 	return FALSE;
@@ -930,6 +930,9 @@ void MainStateRead( void )
 
 /*
 $Log$
+Revision 1.7  2001/04/08 05:57:12  knik
+sound calls update
+
 Revision 1.6  2001/04/03 05:43:36  knik
 reorganized sync code; new snailmeter
 
