@@ -79,7 +79,6 @@ static int initsound_dx(void)
 
   wfx.wFormatTag = WAVE_FORMAT_PCM;
   wfx.nChannels = stereo ? 2 : 1;
-  wfx.nChannels = 1;
   wfx.nSamplesPerSec = dsprate;
   wfx.nAvgBytesPerSec = dsprate * wfx.nChannels;
   wfx.nBlockAlign = stereo ? 2 : 1;
@@ -454,6 +453,9 @@ void Sound_Continue(void)
 
 /*
 $Log$
+Revision 1.5  2001/07/22 06:46:08  knik
+waveout default sound delay 100ms, buffer size 0x200
+
 Revision 1.4  2001/04/17 05:32:33  knik
 sound_continue moved outside dx conditional
 
