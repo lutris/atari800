@@ -96,8 +96,13 @@ void PIA_PutByte(UWORD addr, UBYTE byte)
 		}
 
 		if (machine_type == MACHINE_XLXE) {
+#if 0
+/* We don't want any hacks. This one blocked usage of a memory bank */
+/* with OS ROM disabled in 1088 XE. If a game doesn't work in XL/XE */
+/* because it doesn't in original, just switch to 400/800. */
 			if ((byte | PORTB_mask) == 0)
 				break;				/* special hack for old Atari800 games like is Tapper, for example */
+#endif
 			PORTB_handler(byte);
 		}
 		else {
@@ -158,6 +163,9 @@ void PIAStateRead(void)
 
 /*
 $Log$
+Revision 1.7  2001/09/27 09:30:39  fox
+Atari_PORT -> PORT_input
+
 Revision 1.6  2001/09/17 18:12:33  fox
 machine, mach_xlxe, Ram256, os, default_system -> machine_type, ram_size
 
