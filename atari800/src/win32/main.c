@@ -22,16 +22,24 @@ HINSTANCE myInstance;
 
 static int bActive = 0;		/* activity indicator */
 
-#if 0
+#if 1
 void exit(int code)
 {
+  MSG msg;
+
   groff();
 #ifdef SOUND
   Sound_Exit();
 #endif
   uninitinput();
   PostMessage(hWndMain, WM_CLOSE, 0, 0);
-  _endthread();
+
+  while (GetMessage(&msg, NULL, 0, 0))
+  {
+    TranslateMessage(&msg);
+    DispatchMessage(&msg);
+  }
+  ExitProcess(msg.wParam);
 }
 #endif
 
@@ -211,6 +219,9 @@ int PASCAL WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
 /*
 $Log$
+Revision 1.6  2001/10/03 16:17:20  knik
+mouse input
+
 Revision 1.5  2001/09/25 17:38:27  knik
 added main loop; threading removed
 
