@@ -5,6 +5,7 @@
 
 #include "atari.h"
 #include "antic.h"
+#include	"cpu.h"
 #include "cartridge.h"
 #include "gtia.h"
 #include "log.h"
@@ -351,6 +352,9 @@ void get_charset(char * cs)
 
 /*
 $Log$
+Revision 1.13  2001/10/03 16:42:50  fox
+rewritten escape codes handling
+
 Revision 1.12  2001/10/01 17:13:26  fox
 Poke -> dPutByte
 
