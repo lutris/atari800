@@ -207,7 +207,7 @@ int Sound_Update(void)
 }								// fake function
 #endif
 
-void SetPalette()
+static void SetPalette()
 {
 	SDL_SetPalette(MainScreen, SDL_LOGPAL | SDL_PHYSPAL, colors, 0, 256);
 }
@@ -1564,6 +1564,9 @@ int main(int argc, char **argv)
 
 /*
  $Log$
+ Revision 1.27  2002/08/07 08:54:34  joy
+ when sound init failed Atari800 continues to run with sound disabled
+
  Revision 1.26  2002/08/07 07:26:58  joy
  SDL cleanup thanks to atexit, -nosound supported, -disable-SOUND supported, -dsprate added, -help fixed
 
