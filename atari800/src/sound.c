@@ -23,7 +23,7 @@
 static char *dspname = "/dev/dsp";
 static int dsprate = DEFDSPRATE;
 static int fragstofill = 0;
-static int snddelay = 40;		/* delay in milliseconds */
+static int snddelay = 60;		/* delay in milliseconds */
 
 static int sound_enabled = TRUE;
 static int dsp_fd;
@@ -147,7 +147,7 @@ void Sound_Update(void)
 	if (ioctl(dsp_fd, SNDCTL_DSP_GETOSPACE, &abi))
 		return;
 		
-	i = abi.fragstotal - abi.fragments;
+	i = (abi.fragstotal * abi.fragsize - abi.bytes) >> FRAGSIZE;
 
 	/* we need fragstofill fragments to be filled */
 #ifdef STEREO
@@ -163,6 +163,9 @@ void Sound_Update(void)
 
 /*
  $Log$
+ Revision 1.5  2001/06/18 12:08:51  joy
+ non-blocking open of sound device.
+
  Revision 1.4  2001/04/08 05:59:32  knik
  sound_pause/continue removed if no sound used
 
