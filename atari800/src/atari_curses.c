@@ -1,3 +1,4 @@
+/* $Id$ */
 #ifdef NCURSES
 #include	<ncurses.h>
 #else
@@ -592,11 +593,6 @@ int Atari_Keyboard(void)
 		keycode = AKEY_NONE;
 		break;
 	}
-
-#ifdef SOUND
-        Sound_Update();
-#endif
-
 	return keycode;
 }
 
@@ -624,3 +620,7 @@ int Atari_PEN(int vertical)
 {
 	return 0;
 }
+
+/*
+$Log$
+*/
