@@ -51,10 +51,6 @@
 
 #define DO_DIR
 
-#ifdef AMIGA
-#undef  DO_DIR
-#endif
-
 #ifdef VMS
 #undef  DO_DIR
 #endif
@@ -2219,6 +2215,9 @@ void Device_UpdatePatches(void)
 
 /*
 $Log$
+Revision 1.22  2003/09/14 20:07:30  joy
+O_BINARY defined
+
 Revision 1.21  2003/09/14 19:30:32  joy
 mkstemp emulated if unavailable
 
