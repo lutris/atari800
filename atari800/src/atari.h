@@ -73,10 +73,8 @@ extern ULONG *atari_screen1;
 extern ULONG *atari_screen2;
 #endif
 
-#ifndef NO_VOL_ONLY
 extern unsigned int screenline_cpu_clock;
 #define cpu_clock (screenline_cpu_clock + xpos)
-#endif
 
 #define NO_CART 0
 #define NORMAL8_CART 1
@@ -437,6 +435,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.9  2001/05/04 15:38:34  joy
+version++
+
 Revision 1.8  2001/04/24 10:22:36  joy
 COLOUR TRANSLATION TABLE defined out for SHM under X11 - Rudolf says "it produced funny results"
 
