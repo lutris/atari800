@@ -170,7 +170,7 @@ void Plot(UBYTE * screen, int fg, int bg, int ch, int x, int y)
 	int i;
 	int j;
 
-	char *ptr;
+	UBYTE *ptr;
 
 	ptr = screen + 24 * ATARI_WIDTH + 32 + y * (8 * ATARI_WIDTH) + (x << 3);
 
@@ -1027,6 +1027,9 @@ void BasicUIInit()
 
 /*
 $Log$
+Revision 1.17  2005/03/10 04:41:26  pfusik
+fixed a memory leak
+
 Revision 1.16  2005/03/08 04:32:46  pfusik
 killed gcc -W warnings
 
