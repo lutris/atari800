@@ -2280,6 +2280,9 @@ static void Update_vol_only_sound_mz( void )
   REVISION HISTORY
 
 $Log$
+Revision 1.17  2005/08/06 18:28:46  pfusik
+// comments changed to traditional
+
 Revision 1.16  2005/03/08 04:32:46  pfusik
 killed gcc -W warnings
 
