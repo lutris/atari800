@@ -28,12 +28,14 @@
 #include "atari.h"
 #include "config.h"
 #include "cpu.h"
-#include "input.h"
 #include "memory.h"
 #include "pia.h"
 #include "sio.h"
 #include "log.h"
+#ifndef BASIC
+#include "input.h"
 #include "statesav.h"
+#endif
 
 UBYTE PACTL;
 UBYTE PBCTL;
@@ -134,7 +136,9 @@ void PIA_PutByte(UWORD addr, UBYTE byte)
 			/* set output register */
 			PORTA = byte;		/* change from thor */
 		}
+#ifndef BASIC
 		INPUT_SelectMultiJoy((PORTA | PORTA_mask) >> 4);
+#endif
 		break;
 	case _PORTB:
 		if (machine_type == MACHINE_XLXE) {
@@ -162,6 +166,8 @@ void PIA_PutByte(UWORD addr, UBYTE byte)
 		break;
 	}
 }
+
+#ifndef BASIC
 
 void PIAStateSave(void)
 {
@@ -208,8 +214,13 @@ void PIAStateRead(void)
 	ReadUBYTE( &PORTB_mask, 1 );
 }
 
+#endif /* BASIC */
+
 /*
 $Log$
+Revision 1.12  2005/03/15 19:11:57  joy
+cassette loading by registers
+
 Revision 1.11  2003/03/07 11:23:47  pfusik
 fixed MultiJoy and PORTB
 
