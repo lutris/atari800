@@ -28,6 +28,7 @@
 
 #include "atari.h"
 #include "antic.h"
+#include "config.h"
 #include "cpu.h"
 #include "cartridge.h"
 #include "gtia.h"
@@ -755,6 +756,9 @@ void get_charset(char * cs)
 
 /*
 $Log$
+Revision 1.5  2005/08/10 19:52:03  pfusik
+no state files in BASIC version
+
 Revision 1.4  2003/03/07 11:22:38  pfusik
 PORTB_handler() -> MEMORY_HandlePORTB()
 
