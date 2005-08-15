@@ -48,7 +48,7 @@ void curses_clear_screen(void);
 extern int current_disk_directory;
 
 static int initialised = FALSE;
-static char charset[1024];
+static UBYTE charset[1024];
 
 /* Basic UI driver calls */
 
@@ -999,6 +999,10 @@ void BasicUIInit(void)
 
 /*
 $Log$
+Revision 1.21  2005/08/14 08:44:23  pfusik
+avoid negative array indexes with special keys pressed in UI;
+fixed indentation
+
 Revision 1.20  2005/08/13 08:53:42  pfusik
 CURSES_BASIC; fixed indentation
 
