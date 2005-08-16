@@ -22,18 +22,19 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+#include "config.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>				/* for free() */
 #include <dirent.h>
 #include <sys/stat.h>
+
 #include "rt-config.h"
 #include "atari.h"
 #include "antic.h"
 #include "list.h"
 #include "ui.h"
 #include "log.h"
-#include "config.h"
 #include "input.h"
 #include "prompts.h"
 #include "platform.h"
@@ -999,6 +1000,9 @@ void BasicUIInit(void)
 
 /*
 $Log$
+Revision 1.22  2005/08/15 17:27:00  pfusik
+char charset[] -> UBYTE charset[]
+
 Revision 1.21  2005/08/14 08:44:23  pfusik
 avoid negative array indexes with special keys pressed in UI;
 fixed indentation

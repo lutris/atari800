@@ -22,11 +22,13 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+#include "config.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>				/* for free() */
 #include <dirent.h>
 #include <sys/stat.h>
+
 #include "atari.h"
 #include "cpu.h"
 #include "memory.h"
@@ -37,7 +39,6 @@
 #include "ui.h"
 #include "log.h"
 #include "statesav.h"
-#include "config.h"
 #include "antic.h"
 #include "screen.h"
 #include "binload.h"
@@ -1069,6 +1070,9 @@ void MakeBlankDisk(FILE *setFile)
 
 /*
 $Log$
+Revision 1.61  2005/08/15 17:26:18  pfusik
+"Run BIN file" -> "Run Atari program"
+
 Revision 1.60  2005/08/13 08:53:09  pfusik
 CURSES_BASIC; no sound objects if SOUND disabled; no R: if not compiled in
 
