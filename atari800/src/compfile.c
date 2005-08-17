@@ -35,6 +35,10 @@
 #include <fcntl.h>
 #endif
 
+#ifdef WIN32
+#include <io.h>     /* mktemp, open */
+#endif
+
 /* XXX: try tmpfile(), tmpnam(), tempnam() ? */
 #ifndef HAVE_MKSTEMP
 # ifndef HAVE_MKTEMP
@@ -595,6 +599,10 @@ static long soffset()
 
 /*
 $Log$
+Revision 1.18  2005/08/16 23:08:08  pfusik
+#include "config.h" before system headers;
+dirty workaround for lack of mktemp()
+
 Revision 1.17  2005/08/15 17:17:06  pfusik
 fixed indentation
 
