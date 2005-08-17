@@ -976,7 +976,7 @@ int monitor(void)
 
 				for (addr = addr1; addr <= addr2; addr++) {
 					int i = 0;
-					while (GetByte(addr + i) == tab[i]) {
+					while (GetByte((UWORD) (addr + i)) == tab[i]) {
 						i++;
 						if (i >= n) {
 							printf("Found at %04x\n", addr);
@@ -1162,7 +1162,9 @@ int monitor(void)
 			printf("PROFILE                        - Display profiling statistics\n");
 #endif
 			printf("COLDSTART, WARMSTART           - Perform system coldstart/warmstart\n");
+#ifdef HAVE_SYSTEM
 			printf("!command                       - Execute shell command\n");
+#endif
 			printf("QUIT                           - Quit emulator\n");
 			printf("HELP or ?                      - This text\n");
 		}
@@ -1478,6 +1480,10 @@ static UWORD assembler(UWORD addr)
 
 /*
 $Log$
+Revision 1.20  2005/08/16 23:10:52  pfusik
+#include "config.h" before system headers;
+#ifdef HAVE_FFLUSH; #ifdef HAVE_SYSTEM
+
 Revision 1.19  2005/08/15 17:23:22  pfusik
 HISTORY displays ypos xpos also with NEW_CYCLE_EXACT disabled;
 "C", "M" and "S" support hardware registers;
