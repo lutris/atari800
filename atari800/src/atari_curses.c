@@ -30,12 +30,6 @@
 #include <curses.h>
 #endif
 
-/* workaround warnings with PDCurses */
-#undef HAVE_LIMITS_H
-#undef HAVE_MEMMOVE
-#undef HAVE_MEMORY_H
-#undef HAVE_UNISTD_H
-
 #include "antic.h" /* ypos */
 #include "atari.h"
 #include "input.h"
@@ -106,7 +100,7 @@ int Atari_Exit(int run_monitor)
 	curs_set(1);
 	endwin();
 
-
+	Aflushlog();
 	if (run_monitor)
 		restart = monitor();
 	else
@@ -119,7 +113,6 @@ int Atari_Exit(int run_monitor)
 	else
 		Sound_Exit();
 #endif
-	Aflushlog();
 	return restart;
 }
 
@@ -715,6 +708,9 @@ int main(int argc, char **argv)
 
 /*
 $Log$
+Revision 1.17  2005/08/16 23:05:49  pfusik
+#include "config.h" before system headers
+
 Revision 1.16  2005/08/14 08:40:31  pfusik
 fixed warnings with PDCurses; fixed wide Atari screen
 
