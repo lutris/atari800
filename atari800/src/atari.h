@@ -99,7 +99,7 @@ extern int sprite_collisions_in_skipped_frames;
 #define MENU_SYSTEM           3
 #define MENU_SOUND            4
 #define MENU_SOUND_RECORDING  5
-#define MENU_ARTIF            6
+#define MENU_DISPLAY          6
 #define MENU_SETTINGS         7
 #define MENU_SAVESTATE        8
 #define MENU_LOADSTATE        9
@@ -285,6 +285,9 @@ FILE *Atari_tmpfile(char *filename, const char *mode);
 
 /*
 $Log$
+Revision 1.51  2005/08/21 15:36:03  pfusik
+Atari_tmpfile()
+
 Revision 1.50  2005/08/15 20:35:40  pfusik
 completely reorganized, and now with good comments;
 why define ULONG as long if we assume that int is 32-bit
