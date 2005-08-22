@@ -26,7 +26,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #include "antic.h"  /* ypos */
 #include "atari.h"
@@ -134,8 +133,10 @@ int SIO_Mount(int diskno, const char *filename, int b_open_readonly)
 	fname_len = (int) strlen(filename);
 	if (fname_len >= FILENAME_MAX)
 		return FALSE;
-	for (i = 0; i < fname_len; i++)
-		upperfile[i] = toupper(filename[i]);
+	for (i = 0; i < fname_len; i++) {
+		char c = filename[i];
+		upperfile[i] = (c >= 'a' && c <= 'z') ? (char) (c + ('A' - 'a')) : c;
+	}
 	upperfile[fname_len] = '\0';
 
 	drive_status[diskno - 1] = b_open_readonly ? ReadOnly : ReadWrite;
@@ -1208,6 +1209,9 @@ void SIOStateRead(void)
 
 /*
 $Log$
+Revision 1.32  2005/08/21 15:46:12  pfusik
+got rid of bogus ATPtr; removed unportable DEBUG code
+
 Revision 1.31  2005/08/17 22:45:06  pfusik
 removed unnecessary #include <sys/time.h>; fixed VC6 warnings
 
