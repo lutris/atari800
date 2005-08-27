@@ -32,6 +32,9 @@
 #ifdef HAVE_UNISTD_H
 #include <unistd.h> /* getcwd */
 #endif
+#ifdef HAVE_DIRECT_H
+#include <direct.h> /* getcwd on MSVC*/
+#endif
 #ifdef HAVE_LIBZ
 #include <zlib.h>
 #endif
@@ -418,6 +421,10 @@ int ReadAtariState(const char *filename, const char *mode)
 
 /*
 $Log$
+Revision 1.12  2005/08/21 17:39:26  pfusik
+fixed loading of non-verbose state files;
+use #ifdef HAVE_STRERROR
+
 Revision 1.11  2005/08/16 23:07:28  pfusik
 #include "config.h" before system headers
 
