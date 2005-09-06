@@ -2,8 +2,7 @@
 #define _ATARI_H_
 
 #include "config.h"
-#include <stdio.h>  /* for FILE */
-#ifdef __PLUS
+#if defined(WIN32) || defined(__PLUS)
 #include <windows.h>
 #endif
 
@@ -26,7 +25,7 @@
 #define SLONG signed int
 #define UBYTE unsigned char
 #define UWORD unsigned short
-#ifndef __PLUS
+#if !defined(WIN32) && !defined(__PLUS)
 /* Windows headers typedef ULONG */
 #define ULONG unsigned int
 #endif
@@ -309,14 +308,15 @@ void Atari800_PatchOS(void);
 /* Effects deltatime delay. */
 void atari_sync(void);
 
-/* Opens a new temporary file and fills in filename with its name. */
-FILE *Atari_tmpfile(char *filename, const char *mode);
-
 #endif /* _ATARI_H_ */
 
 
 /*
 $Log$
+Revision 1.53  2005/08/31 19:55:33  pfusik
+auto-starting any files supported by the emulator;
+support for Atari800Win PLus
+
 Revision 1.52  2005/08/22 20:49:31  pfusik
 MENU_ARTIF -> MENU_DISPLAY
 
