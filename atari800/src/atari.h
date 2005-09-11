@@ -2,7 +2,7 @@
 #define _ATARI_H_
 
 #include "config.h"
-#if defined(WIN32) || defined(__PLUS)
+#ifdef WIN32
 #include <windows.h>
 #endif
 
@@ -25,7 +25,7 @@
 #define SLONG signed int
 #define UBYTE unsigned char
 #define UWORD unsigned short
-#if !defined(WIN32) && !defined(__PLUS)
+#ifndef WIN32
 /* Windows headers typedef ULONG */
 #define ULONG unsigned int
 #endif
@@ -313,6 +313,9 @@ void atari_sync(void);
 
 /*
 $Log$
+Revision 1.54  2005/09/06 22:46:20  pfusik
+introduced util.[ch]; MSVC support
+
 Revision 1.53  2005/08/31 19:55:33  pfusik
 auto-starting any files supported by the emulator;
 support for Atari800Win PLus
