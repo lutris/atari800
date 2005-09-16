@@ -42,7 +42,7 @@ int buffers = 0;
 enum {SOUND_NONE, SOUND_WAV};
 
 static int issound = SOUND_NONE;
-static int dsprate = 22050;
+static int dsprate = 11025;
 static int snddelay = 40;	/* delay in milliseconds */
 static int snddelaywav = 100;
 #ifdef STEREO_SOUND
