@@ -325,7 +325,7 @@ int RtConfigLoad(const char *alternate_config_filename)
 	return TRUE;
 }
 
-void RtConfigSave(void)
+int RtConfigSave(void)
 {
 	FILE *fp;
 	int i;
@@ -334,9 +334,7 @@ void RtConfigSave(void)
 	if (fp == NULL) {
 		perror(rtconfig_filename);
 		Aprint("Cannot write to config file: %s", rtconfig_filename);
-		Aflushlog();
-		/* FIXME: RtConfigSave may be called from UI */
-		exit(1);
+		return FALSE;
 	}
 	Aprint("Writing config file: %s", rtconfig_filename);
 
@@ -424,6 +422,7 @@ void RtConfigSave(void)
 #endif
 
 	fclose(fp);
+	return TRUE;
 }
 
 #ifndef DONT_USE_RTCONFIGUPDATE
@@ -554,6 +553,9 @@ void RtConfigUpdate(void)
 
 /*
 $Log$
+Revision 1.29  2005/09/10 12:36:05  pfusik
+Util_splitpath() and Util_catpath()
+
 Revision 1.28  2005/09/06 22:51:05  pfusik
 introduced util.[ch]
 
