@@ -191,10 +191,3 @@ void uninitjoystick(void)
     }
   }
 }
-
-/*
-$Log$
-Revision 1.1  2005/05/13 23:27:07  emuslor
-Joystick support for DirectX
-
-*/
