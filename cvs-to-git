@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# This script is used to convert the original atari800 CVS repo to a git repo
+#
+
+mkdir /tmp/atari800
+cd /tmp/atari800
+rsync -avz "rsync://atari800.cvs.sourceforge.net/cvsroot/atari800/*" atari-cvs
+cvs2git --blobfile=git-blob.dat --dumpfile=git-dump.dat --username=atari800 --fallback-encoding='utf-8' atari-cvs
+mkdir atari800.git
+cd atari800.git
+git init --bare
+cat ../git-blob.dat ../git-dump.dat | git fast-import
